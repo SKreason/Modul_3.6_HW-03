@@ -1,5 +1,7 @@
 {% extends 'flatpages/default.html' %}
 
+{% load custom_filters %}
+
 {% block title %}
 Новость {{ Новость.id }}.
 {% endblock title %}
@@ -9,7 +11,7 @@
 {% endblock title1 %}
 
 {% block title2 %}
-{{ Новость.title }}
+{{ Новость.title|censor }}
 {% endblock title2 %}
 
 {% block content %}
@@ -17,7 +19,7 @@
 {{ Новость.dateCreation|date:'d F Y' }}
 <hr>
 <br>
-{{ Новость.text }}
+{{ Новость.text|censor }}
 <br>
 <br>
 {% endblock content %}

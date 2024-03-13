@@ -1,5 +1,7 @@
 {% extends 'flatpages/default.html' %}
 
+{% load custom_filters %}
+
 {% block title %}
 Новости
 {% endblock title %}
@@ -21,8 +23,8 @@
 <hr>
 <br>
 {{ Новость.dateCreation|date:'d F Y' }}
-<h4><a class="nav-link" href="/news/{{ Новость.id }}">{{ Новость.title }}</a></h4>
+<h4><a class="nav-link" href="/news/{{ Новость.id }}">{{ Новость.title|censor }}</a></h4>
 <br>
-{{ Новость.text|truncatewords:20 }}
+{{ Новость.text|censor|truncatechars:20 }}
 {% endfor %}
 {% endblock content %}
