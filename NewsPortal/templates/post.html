@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Новость {{ Новость.id }}.
+{% endblock title %}
+
+{% block title1 %}
+Новость {{ Новость.id }}.
+{% endblock title1 %}
+
+{% block title2 %}
+{{ Новость.title }}
+{% endblock title2 %}
+
+{% block content %}
+<br>
+{{ Новость.dateCreation|date:'d F Y' }}
+<hr>
+<br>
+{{ Новость.text }}
+<br>
+<br>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Новости
+{% endblock title %}
+
+{% block title1 %}
+Новости
+{% endblock title1 %}
+
+{% block title2 %}
+{% if Новости %}
+<h1>Новостей: {{ Новости|length }}</h1>
+{% else %}
+<h1>Новостей: нет! Заходите позднее!</h1>
+{% endif %}
+{% endblock title2 %}
+{% block content %}
+{% for Новость in Новости %}
+<br>
+<hr>
+<br>
+{{ Новость.dateCreation|date:'d F Y' }}
+<h4><a class="nav-link" href="/news/{{ Новость.id }}">{{ Новость.title }}</a></h4>
+<br>
+{{ Новость.text|truncatewords:20 }}
+{% endfor %}
+{% endblock content %}
